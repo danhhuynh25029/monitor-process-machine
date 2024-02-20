@@ -1,7 +1,27 @@
-# Tauri + React + Typescript
+# Monitor Process Machine
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+Project to learn Tauri to build desktop app. Improve my skill about **Rust** && **Typescript**
 
-## Recommended IDE Setup
+* ✅ Ram
+* ✅ CPU  
+* ✅ Process 
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+## Run Project:
+
+* Install Rust
+* Install Nodejs
+* Install Tauri follow tutorial
+
+* After that :
+
+Install module and library
+```
+    npm install
+```
+
+Run project
+
+```
+    npm tauri run dev
+```
+
