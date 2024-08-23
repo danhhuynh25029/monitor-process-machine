@@ -2,11 +2,9 @@
 
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
-use std::vec;
-
+use std::{io::{Read, Write as _}, net::{TcpStream, ToSocketAddrs}, vec};
 use sysinfo::System;
-
-
+use std::time::{Duration, Instant};
 
 #[tauri::command]
 fn show_memory() -> f64{
@@ -69,12 +67,16 @@ fn show_process() -> Vec<Vec<String>>{
         let mut tmp: Vec<String> = vec![];
         tmp.push(pid.to_string());
         tmp.push(process.name().to_string());
-        tmp.push(process.cpu_usage().to_string());
-        tmp.push(process.memory().to_string());
+        tmp.push(format!("{:.2}",process.cpu_usage()).to_string());
+        tmp.push((process.memory() / 1024).to_string());
+        tmp.push(process.start_time().to_string());
+        // tmp.push(format!("{:?}",process.exe().unwrap()));
         result.push(tmp);
-    }
+    }   
     return result;
 }
+
+
 
 fn main() {
     tauri::Builder::default()
